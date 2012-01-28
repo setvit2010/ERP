@@ -30,15 +30,13 @@
                     <h:outputLabel value="#{bundle.EditAvionesLabel_anio}" for="anio" />
                     <h:inputText id="anio" value="#{avionesController.selected.anio}" title="#{bundle.EditAvionesTitle_anio}" />
                 </h:panelGrid>
-                <h:commandLink action="#{avionesController.update}" value="#{bundle.EditAvionesSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditAvionesViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{avionesController.prepareList}" value="#{bundle.EditAvionesShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditAvionesIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{avionesController.update}" value="#{bundle.EditAvionesSaveLink}"/>
+                
+                <h:commandButton action="View" value="#{bundle.EditAvionesViewLink}" immediate="true"/>
+                
+                <h:commandButton action="#{avionesController.prepareList}" value="#{bundle.EditAvionesShowAllLink}" immediate="true"/>
+                
+                <h:commandButton value="#{bundle.EditAvionesIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
