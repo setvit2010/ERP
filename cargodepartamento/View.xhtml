@@ -23,17 +23,15 @@
                     <h:outputText value="#{cargodepartamentoController.selected.cargoProfesion}" title="#{bundle.ViewCargodepartamentoTitle_cargoProfesion}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{cargodepartamentoController.destroyAndView}" value="#{bundle.ViewCargodepartamentoDestroyLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewCargodepartamentoEditLink}"/>
-                <br />
-                <h:commandLink action="#{cargodepartamentoController.prepareCreate}" value="#{bundle.ViewCargodepartamentoCreateLink}" />
-                <br />
-                <h:commandLink action="#{cargodepartamentoController.prepareList}" value="#{bundle.ViewCargodepartamentoShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewCargodepartamentoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{cargodepartamentoController.destroyAndView}" value="#{bundle.ViewCargodepartamentoDestroyLink}"/>
+               
+                <h:commandButton action="Edit" value="#{bundle.ViewCargodepartamentoEditLink}"/>
+               
+                <h:commandButton action="#{cargodepartamentoController.prepareCreate}" value="#{bundle.ViewCargodepartamentoCreateLink}" />
+    
+                <h:commandButton action="#{cargodepartamentoController.prepareList}" value="#{bundle.ViewCargodepartamentoShowAllLink}"/>
+             
+                <h:commandButton value="#{bundle.ViewCargodepartamentoIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
