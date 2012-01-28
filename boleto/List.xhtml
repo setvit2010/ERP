@@ -69,10 +69,9 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{boletoController.prepareCreate}" value="#{bundle.ListBoletoCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListBoletoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{boletoController.prepareCreate}" value="#{bundle.ListBoletoCreateLink}"/>
+
+                <h:commandButton value="#{bundle.ListBoletoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
