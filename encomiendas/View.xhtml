@@ -25,17 +25,15 @@
                     <h:outputText value="#{encomiendasController.selected.descripcion}" title="#{bundle.ViewEncomiendasTitle_descripcion}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{encomiendasController.destroyAndView}" value="#{bundle.ViewEncomiendasDestroyLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewEncomiendasEditLink}"/>
-                <br />
-                <h:commandLink action="#{encomiendasController.prepareCreate}" value="#{bundle.ViewEncomiendasCreateLink}" />
-                <br />
-                <h:commandLink action="#{encomiendasController.prepareList}" value="#{bundle.ViewEncomiendasShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewEncomiendasIndexLink}" action="/index" immediate="true" />
+                <h:commandButtonaction="#{encomiendasController.destroyAndView}" value="#{bundle.ViewEncomiendasDestroyLink}"/>
+               
+                <h:commandButton action="Edit" value="#{bundle.ViewEncomiendasEditLink}"/>
+           
+                <h:commandButton action="#{encomiendasController.prepareCreate}" value="#{bundle.ViewEncomiendasCreateLink}" />
+          
+                <h:commandButton action="#{encomiendasController.prepareList}" value="#{bundle.ViewEncomiendasShowAllLink}"/>
+                
+                <h:commandButton value="#{bundle.ViewEncomiendasIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
