@@ -21,13 +21,11 @@
                     <h:inputText id="departamento" value="#{departamentoController.selected.departamento}" title="#{bundle.CreateDepartamentoTitle_departamento}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{departamentoController.create}" value="#{bundle.CreateDepartamentoSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{departamentoController.prepareList}" value="#{bundle.CreateDepartamentoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateDepartamentoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{departamentoController.create}" value="#{bundle.CreateDepartamentoSaveLink}" />
+
+                <h:commandButton action="#{departamentoController.prepareList}" value="#{bundle.CreateDepartamentoShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.CreateDepartamentoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
