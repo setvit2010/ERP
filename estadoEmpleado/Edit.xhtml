@@ -22,15 +22,13 @@
                     <h:outputLabel value="#{bundle.EditEstadoEmpleadoLabel_descripcion}" for="descripcion" />
                     <h:inputText id="descripcion" value="#{estadoEmpleadoController.selected.descripcion}" title="#{bundle.EditEstadoEmpleadoTitle_descripcion}" />
                 </h:panelGrid>
-                <h:commandLink action="#{estadoEmpleadoController.update}" value="#{bundle.EditEstadoEmpleadoSaveLink}"/>
+                <h:commandButton action="#{estadoEmpleadoController.update}" value="#{bundle.EditEstadoEmpleadoSaveLink}"/>
+
+                <h:commandButton action="View" value="#{bundle.EditEstadoEmpleadoViewLink}" immediate="true"/>
                 <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditEstadoEmpleadoViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{estadoEmpleadoController.prepareList}" value="#{bundle.EditEstadoEmpleadoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditEstadoEmpleadoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{estadoEmpleadoController.prepareList}" value="#{bundle.EditEstadoEmpleadoShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.EditEstadoEmpleadoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
