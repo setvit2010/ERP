@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditClienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditClienteLabel_idCliente}" for="idCliente" />
+                    <h:inputText id="idCliente" value="#{clienteController.selected.idCliente}" title="#{bundle.EditClienteTitle_idCliente}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_idCliente}"/>
+                    <h:outputLabel value="#{bundle.EditClienteLabel_idReservacion}" for="idReservacion" />
+                    <h:inputText id="idReservacion" value="#{clienteController.selected.idReservacion}" title="#{bundle.EditClienteTitle_idReservacion}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{clienteController.selected.nombre}" title="#{bundle.EditClienteTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_apellidos}" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{clienteController.selected.apellidos}" title="#{bundle.EditClienteTitle_apellidos}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_CI}" for="CI" />
+                    <h:inputText id="CI" value="#{clienteController.selected.CI}" title="#{bundle.EditClienteTitle_CI}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{clienteController.selected.direccion}" title="#{bundle.EditClienteTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_telf}" for="telf" />
+                    <h:inputText id="telf" value="#{clienteController.selected.telf}" title="#{bundle.EditClienteTitle_telf}" />
+                    <h:outputLabel value="#{bundle.EditClienteLabel_pais}" for="pais" />
+                    <h:inputText id="pais" value="#{clienteController.selected.pais}" title="#{bundle.EditClienteTitle_pais}" />
+                </h:panelGrid>
+                <h:commandLink action="#{clienteController.update}" value="#{bundle.EditClienteSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditClienteViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{clienteController.prepareList}" value="#{bundle.EditClienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditClienteIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

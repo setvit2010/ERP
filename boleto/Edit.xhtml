@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBoletoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBoletoLabel_idBoleto}" for="idBoleto" />
+                    <h:inputText id="idBoleto" value="#{boletoController.selected.idBoleto}" title="#{bundle.EditBoletoTitle_idBoleto}" required="true" requiredMessage="#{bundle.EditBoletoRequiredMessage_idBoleto}"/>
+                    <h:outputLabel value="#{bundle.EditBoletoLabel_idViaje}" for="idViaje" />
+                    <h:inputText id="idViaje" value="#{boletoController.selected.idViaje}" title="#{bundle.EditBoletoTitle_idViaje}" />
+                    <h:outputLabel value="#{bundle.EditBoletoLabel_idCliente}" for="idCliente" />
+                    <h:inputText id="idCliente" value="#{boletoController.selected.idCliente}" title="#{bundle.EditBoletoTitle_idCliente}" />
+                    <h:outputLabel value="#{bundle.EditBoletoLabel_nroBoleto}" for="nroBoleto" />
+                    <h:inputText id="nroBoleto" value="#{boletoController.selected.nroBoleto}" title="#{bundle.EditBoletoTitle_nroBoleto}" />
+                    <h:outputLabel value="#{bundle.EditBoletoLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{boletoController.selected.precio}" title="#{bundle.EditBoletoTitle_precio}" />
+                    <h:outputLabel value="#{bundle.EditBoletoLabel_clase}" for="clase" />
+                    <h:inputText id="clase" value="#{boletoController.selected.clase}" title="#{bundle.EditBoletoTitle_clase}" />
+                </h:panelGrid>
+                <h:commandLink action="#{boletoController.update}" value="#{bundle.EditBoletoSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditBoletoViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{boletoController.prepareList}" value="#{bundle.EditBoletoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditBoletoIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

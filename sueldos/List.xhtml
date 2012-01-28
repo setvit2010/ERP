@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSueldosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSueldosEmpty}" rendered="#{sueldosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{sueldosController.items.rowCount > 0}">
+                    <h:outputText value="#{sueldosController.pagination.pageFirstItem + 1}..#{sueldosController.pagination.pageLastItem + 1}/#{sueldosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{sueldosController.previous}" value="#{bundle.Previous} #{sueldosController.pagination.pageSize}" rendered="#{sueldosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{sueldosController.next}" value="#{bundle.Next} #{sueldosController.pagination.pageSize}" rendered="#{sueldosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{sueldosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSueldosTitle_idSueldos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSueldos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSueldosTitle_idEmpleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEmpleado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSueldosTitle_valor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{sueldosController.prepareView}" value="#{bundle.ListSueldosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{sueldosController.prepareEdit}" value="#{bundle.ListSueldosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{sueldosController.destroy}" value="#{bundle.ListSueldosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{sueldosController.prepareCreate}" value="#{bundle.ListSueldosCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListSueldosIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

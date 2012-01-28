@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPeticionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPeticionLabel_idPeticion}" for="idPeticion" />
+                    <h:inputText id="idPeticion" value="#{peticionController.selected.idPeticion}" title="#{bundle.EditPeticionTitle_idPeticion}" required="true" requiredMessage="#{bundle.EditPeticionRequiredMessage_idPeticion}"/>
+                    <h:outputLabel value="#{bundle.EditPeticionLabel_idTipoPeticion}" for="idTipoPeticion" />
+                    <h:inputText id="idTipoPeticion" value="#{peticionController.selected.idTipoPeticion}" title="#{bundle.EditPeticionTitle_idTipoPeticion}" />
+                    <h:outputLabel value="#{bundle.EditPeticionLabel_nomModulo}" for="nomModulo" />
+                    <h:inputText id="nomModulo" value="#{peticionController.selected.nomModulo}" title="#{bundle.EditPeticionTitle_nomModulo}" />
+                    <h:outputLabel value="#{bundle.EditPeticionLabel_aprobado}" for="aprobado" />
+                    <h:inputText id="aprobado" value="#{peticionController.selected.aprobado}" title="#{bundle.EditPeticionTitle_aprobado}" />
+                </h:panelGrid>
+                <h:commandLink action="#{peticionController.update}" value="#{bundle.EditPeticionSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditPeticionViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{peticionController.prepareList}" value="#{bundle.EditPeticionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditPeticionIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFacturasClientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFacturasClientesEmpty}" rendered="#{facturasClientesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{facturasClientesController.items.rowCount > 0}">
+                    <h:outputText value="#{facturasClientesController.pagination.pageFirstItem + 1}..#{facturasClientesController.pagination.pageLastItem + 1}/#{facturasClientesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{facturasClientesController.previous}" value="#{bundle.Previous} #{facturasClientesController.pagination.pageSize}" rendered="#{facturasClientesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{facturasClientesController.next}" value="#{bundle.Next} #{facturasClientesController.pagination.pageSize}" rendered="#{facturasClientesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{facturasClientesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_idFacturacli}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFacturacli}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_idBoleto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idBoleto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_idCliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCliente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_idViaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idViaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_cantidadBoletos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadBoletos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_detalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.detalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_subtotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subtotal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_iva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iva}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasClientesTitle_total}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.total}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{facturasClientesController.prepareView}" value="#{bundle.ListFacturasClientesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{facturasClientesController.prepareEdit}" value="#{bundle.ListFacturasClientesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{facturasClientesController.destroy}" value="#{bundle.ListFacturasClientesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{facturasClientesController.prepareCreate}" value="#{bundle.ListFacturasClientesCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListFacturasClientesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

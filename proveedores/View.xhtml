@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProveedoresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_idProveedor}"/>
+                    <h:outputText value="#{proveedoresController.selected.idProveedor}" title="#{bundle.ViewProveedoresTitle_idProveedor}"/>
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_nombre}"/>
+                    <h:outputText value="#{proveedoresController.selected.nombre}" title="#{bundle.ViewProveedoresTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_ruc}"/>
+                    <h:outputText value="#{proveedoresController.selected.ruc}" title="#{bundle.ViewProveedoresTitle_ruc}"/>
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_nroCuentab}"/>
+                    <h:outputText value="#{proveedoresController.selected.nroCuentab}" title="#{bundle.ViewProveedoresTitle_nroCuentab}"/>
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_descripcion}"/>
+                    <h:outputText value="#{proveedoresController.selected.descripcion}" title="#{bundle.ViewProveedoresTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_telfono}"/>
+                    <h:outputText value="#{proveedoresController.selected.telfono}" title="#{bundle.ViewProveedoresTitle_telfono}"/>
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_direccion}"/>
+                    <h:outputText value="#{proveedoresController.selected.direccion}" title="#{bundle.ViewProveedoresTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewProveedoresLabel_email}"/>
+                    <h:outputText value="#{proveedoresController.selected.email}" title="#{bundle.ViewProveedoresTitle_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{proveedoresController.destroyAndView}" value="#{bundle.ViewProveedoresDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewProveedoresEditLink}"/>
+                <br />
+                <h:commandLink action="#{proveedoresController.prepareCreate}" value="#{bundle.ViewProveedoresCreateLink}" />
+                <br />
+                <h:commandLink action="#{proveedoresController.prepareList}" value="#{bundle.ViewProveedoresShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewProveedoresIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

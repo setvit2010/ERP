@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListLibroMayorAerolineaEmpty}" rendered="#{libroMayorAerolineaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{libroMayorAerolineaController.items.rowCount > 0}">
+                    <h:outputText value="#{libroMayorAerolineaController.pagination.pageFirstItem + 1}..#{libroMayorAerolineaController.pagination.pageLastItem + 1}/#{libroMayorAerolineaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{libroMayorAerolineaController.previous}" value="#{bundle.Previous} #{libroMayorAerolineaController.pagination.pageSize}" rendered="#{libroMayorAerolineaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{libroMayorAerolineaController.next}" value="#{bundle.Next} #{libroMayorAerolineaController.pagination.pageSize}" rendered="#{libroMayorAerolineaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{libroMayorAerolineaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_idLibromayor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idLibromayor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_idBancos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idBancos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_idMovimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMovimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_idPagopersonal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPagopersonal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_idFacturacli}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFacturacli}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_idFacturapro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFacturapro}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_idAsignacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAsignacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_detalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.detalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_debe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.debe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_haber}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.haber}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLibroMayorAerolineaTitle_saldo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{libroMayorAerolineaController.prepareView}" value="#{bundle.ListLibroMayorAerolineaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{libroMayorAerolineaController.prepareEdit}" value="#{bundle.ListLibroMayorAerolineaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{libroMayorAerolineaController.destroy}" value="#{bundle.ListLibroMayorAerolineaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{libroMayorAerolineaController.prepareCreate}" value="#{bundle.ListLibroMayorAerolineaCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListLibroMayorAerolineaIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

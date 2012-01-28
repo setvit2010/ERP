@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMovimientosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMovimientosLabel_idMovimiento}" for="idMovimiento" />
+                    <h:inputText id="idMovimiento" value="#{movimientosController.selected.idMovimiento}" title="#{bundle.CreateMovimientosTitle_idMovimiento}" required="true" requiredMessage="#{bundle.CreateMovimientosRequiredMessage_idMovimiento}"/>
+                    <h:outputLabel value="#{bundle.CreateMovimientosLabel_tipoMovimiento}" for="tipoMovimiento" />
+                    <h:inputText id="tipoMovimiento" value="#{movimientosController.selected.tipoMovimiento}" title="#{bundle.CreateMovimientosTitle_tipoMovimiento}" />
+                    <h:outputLabel value="#{bundle.CreateMovimientosLabel_monto}" for="monto" />
+                    <h:inputText id="monto" value="#{movimientosController.selected.monto}" title="#{bundle.CreateMovimientosTitle_monto}" />
+                    <h:outputLabel value="#{bundle.CreateMovimientosLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{movimientosController.selected.fecha}" title="#{bundle.CreateMovimientosTitle_fecha}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateMovimientosLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{movimientosController.selected.descripcion}" title="#{bundle.CreateMovimientosTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.CreateMovimientosLabel_saldo}" for="saldo" />
+                    <h:inputText id="saldo" value="#{movimientosController.selected.saldo}" title="#{bundle.CreateMovimientosTitle_saldo}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{movimientosController.create}" value="#{bundle.CreateMovimientosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{movimientosController.prepareList}" value="#{bundle.CreateMovimientosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateMovimientosIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

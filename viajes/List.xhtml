@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListViajesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListViajesEmpty}" rendered="#{viajesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{viajesController.items.rowCount > 0}">
+                    <h:outputText value="#{viajesController.pagination.pageFirstItem + 1}..#{viajesController.pagination.pageLastItem + 1}/#{viajesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{viajesController.previous}" value="#{bundle.Previous} #{viajesController.pagination.pageSize}" rendered="#{viajesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{viajesController.next}" value="#{bundle.Next} #{viajesController.pagination.pageSize}" rendered="#{viajesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{viajesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListViajesTitle_idViaje}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idViaje}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListViajesTitle_idAeropuerto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAeropuerto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListViajesTitle_idRuta}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idRuta}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListViajesTitle_fechaSalida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaSalida}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListViajesTitle_fechaDestino}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaDestino}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListViajesTitle_nroPasajeros}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nroPasajeros}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListViajesTitle_nroAsistentes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nroAsistentes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{viajesController.prepareView}" value="#{bundle.ListViajesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{viajesController.prepareEdit}" value="#{bundle.ListViajesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{viajesController.destroy}" value="#{bundle.ListViajesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{viajesController.prepareCreate}" value="#{bundle.ListViajesCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListViajesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

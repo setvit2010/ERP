@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMovimientosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMovimientosEmpty}" rendered="#{movimientosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{movimientosController.items.rowCount > 0}">
+                    <h:outputText value="#{movimientosController.pagination.pageFirstItem + 1}..#{movimientosController.pagination.pageLastItem + 1}/#{movimientosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{movimientosController.previous}" value="#{bundle.Previous} #{movimientosController.pagination.pageSize}" rendered="#{movimientosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{movimientosController.next}" value="#{bundle.Next} #{movimientosController.pagination.pageSize}" rendered="#{movimientosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{movimientosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMovimientosTitle_idMovimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idMovimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMovimientosTitle_tipoMovimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoMovimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMovimientosTitle_monto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMovimientosTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMovimientosTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMovimientosTitle_saldo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{movimientosController.prepareView}" value="#{bundle.ListMovimientosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{movimientosController.prepareEdit}" value="#{bundle.ListMovimientosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{movimientosController.destroy}" value="#{bundle.ListMovimientosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{movimientosController.prepareCreate}" value="#{bundle.ListMovimientosCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListMovimientosIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

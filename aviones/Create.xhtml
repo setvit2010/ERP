@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAvionesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAvionesLabel_idAvion}" for="idAvion" />
+                    <h:inputText id="idAvion" value="#{avionesController.selected.idAvion}" title="#{bundle.CreateAvionesTitle_idAvion}" required="true" requiredMessage="#{bundle.CreateAvionesRequiredMessage_idAvion}"/>
+                    <h:outputLabel value="#{bundle.CreateAvionesLabel_idAeropuerto}" for="idAeropuerto" />
+                    <h:inputText id="idAeropuerto" value="#{avionesController.selected.idAeropuerto}" title="#{bundle.CreateAvionesTitle_idAeropuerto}" />
+                    <h:outputLabel value="#{bundle.CreateAvionesLabel_nroAvion}" for="nroAvion" />
+                    <h:inputText id="nroAvion" value="#{avionesController.selected.nroAvion}" title="#{bundle.CreateAvionesTitle_nroAvion}" />
+                    <h:outputLabel value="#{bundle.CreateAvionesLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{avionesController.selected.tipo}" title="#{bundle.CreateAvionesTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.CreateAvionesLabel_capacidad}" for="capacidad" />
+                    <h:inputText id="capacidad" value="#{avionesController.selected.capacidad}" title="#{bundle.CreateAvionesTitle_capacidad}" />
+                    <h:outputLabel value="#{bundle.CreateAvionesLabel_modelo}" for="modelo" />
+                    <h:inputText id="modelo" value="#{avionesController.selected.modelo}" title="#{bundle.CreateAvionesTitle_modelo}" />
+                    <h:outputLabel value="#{bundle.CreateAvionesLabel_anio}" for="anio" />
+                    <h:inputText id="anio" value="#{avionesController.selected.anio}" title="#{bundle.CreateAvionesTitle_anio}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{avionesController.create}" value="#{bundle.CreateAvionesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{avionesController.prepareList}" value="#{bundle.CreateAvionesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateAvionesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

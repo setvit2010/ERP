@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCargodepartamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCargodepartamentoLabel_cargodepartamentoPK_idCargo}" for="cargodepartamentoPK_idCargo" />
+                    <h:inputText id="cargodepartamentoPK_idCargo" value="#{cargodepartamentoController.selected.cargodepartamentoPK.idCargo}" title="#{bundle.CreateCargodepartamentoTitle_cargodepartamentoPK_idCargo}" required="true" requiredMessage="#{bundle.CreateCargodepartamentoRequiredMessage_cargodepartamentoPK_idCargo}"/>
+                    <h:outputLabel value="#{bundle.CreateCargodepartamentoLabel_cargodepartamentoPK_idDepartamento}" for="cargodepartamentoPK_idDepartamento" />
+                    <h:inputText id="cargodepartamentoPK_idDepartamento" value="#{cargodepartamentoController.selected.cargodepartamentoPK.idDepartamento}" title="#{bundle.CreateCargodepartamentoTitle_cargodepartamentoPK_idDepartamento}" required="true" requiredMessage="#{bundle.CreateCargodepartamentoRequiredMessage_cargodepartamentoPK_idDepartamento}"/>
+                    <h:outputLabel value="#{bundle.CreateCargodepartamentoLabel_cargoProfesion}" for="cargoProfesion" />
+                    <h:inputText id="cargoProfesion" value="#{cargodepartamentoController.selected.cargoProfesion}" title="#{bundle.CreateCargodepartamentoTitle_cargoProfesion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cargodepartamentoController.create}" value="#{bundle.CreateCargodepartamentoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cargodepartamentoController.prepareList}" value="#{bundle.CreateCargodepartamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateCargodepartamentoIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

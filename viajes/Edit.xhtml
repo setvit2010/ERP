@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditViajesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditViajesLabel_idViaje}" for="idViaje" />
+                    <h:inputText id="idViaje" value="#{viajesController.selected.idViaje}" title="#{bundle.EditViajesTitle_idViaje}" required="true" requiredMessage="#{bundle.EditViajesRequiredMessage_idViaje}"/>
+                    <h:outputLabel value="#{bundle.EditViajesLabel_idAeropuerto}" for="idAeropuerto" />
+                    <h:inputText id="idAeropuerto" value="#{viajesController.selected.idAeropuerto}" title="#{bundle.EditViajesTitle_idAeropuerto}" />
+                    <h:outputLabel value="#{bundle.EditViajesLabel_idRuta}" for="idRuta" />
+                    <h:inputText id="idRuta" value="#{viajesController.selected.idRuta}" title="#{bundle.EditViajesTitle_idRuta}" />
+                    <h:outputLabel value="#{bundle.EditViajesLabel_fechaSalida}" for="fechaSalida" />
+                    <h:inputText id="fechaSalida" value="#{viajesController.selected.fechaSalida}" title="#{bundle.EditViajesTitle_fechaSalida}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditViajesLabel_fechaDestino}" for="fechaDestino" />
+                    <h:inputText id="fechaDestino" value="#{viajesController.selected.fechaDestino}" title="#{bundle.EditViajesTitle_fechaDestino}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditViajesLabel_nroPasajeros}" for="nroPasajeros" />
+                    <h:inputText id="nroPasajeros" value="#{viajesController.selected.nroPasajeros}" title="#{bundle.EditViajesTitle_nroPasajeros}" />
+                    <h:outputLabel value="#{bundle.EditViajesLabel_nroAsistentes}" for="nroAsistentes" />
+                    <h:inputText id="nroAsistentes" value="#{viajesController.selected.nroAsistentes}" title="#{bundle.EditViajesTitle_nroAsistentes}" />
+                </h:panelGrid>
+                <h:commandLink action="#{viajesController.update}" value="#{bundle.EditViajesSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditViajesViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{viajesController.prepareList}" value="#{bundle.EditViajesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditViajesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

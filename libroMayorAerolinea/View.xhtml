@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewLibroMayorAerolineaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_idLibromayor}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.idLibromayor}" title="#{bundle.ViewLibroMayorAerolineaTitle_idLibromayor}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_idBancos}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.idBancos}" title="#{bundle.ViewLibroMayorAerolineaTitle_idBancos}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_idMovimiento}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.idMovimiento}" title="#{bundle.ViewLibroMayorAerolineaTitle_idMovimiento}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_idPagopersonal}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.idPagopersonal}" title="#{bundle.ViewLibroMayorAerolineaTitle_idPagopersonal}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_idFacturacli}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.idFacturacli}" title="#{bundle.ViewLibroMayorAerolineaTitle_idFacturacli}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_idFacturapro}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.idFacturapro}" title="#{bundle.ViewLibroMayorAerolineaTitle_idFacturapro}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_idAsignacion}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.idAsignacion}" title="#{bundle.ViewLibroMayorAerolineaTitle_idAsignacion}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_fecha}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.fecha}" title="#{bundle.ViewLibroMayorAerolineaTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_detalle}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.detalle}" title="#{bundle.ViewLibroMayorAerolineaTitle_detalle}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_debe}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.debe}" title="#{bundle.ViewLibroMayorAerolineaTitle_debe}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_haber}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.haber}" title="#{bundle.ViewLibroMayorAerolineaTitle_haber}"/>
+                    <h:outputText value="#{bundle.ViewLibroMayorAerolineaLabel_saldo}"/>
+                    <h:outputText value="#{libroMayorAerolineaController.selected.saldo}" title="#{bundle.ViewLibroMayorAerolineaTitle_saldo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{libroMayorAerolineaController.destroyAndView}" value="#{bundle.ViewLibroMayorAerolineaDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewLibroMayorAerolineaEditLink}"/>
+                <br />
+                <h:commandLink action="#{libroMayorAerolineaController.prepareCreate}" value="#{bundle.ViewLibroMayorAerolineaCreateLink}" />
+                <br />
+                <h:commandLink action="#{libroMayorAerolineaController.prepareList}" value="#{bundle.ViewLibroMayorAerolineaShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewLibroMayorAerolineaIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

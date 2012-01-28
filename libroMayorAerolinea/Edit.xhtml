@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLibroMayorAerolineaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_idLibromayor}" for="idLibromayor" />
+                    <h:inputText id="idLibromayor" value="#{libroMayorAerolineaController.selected.idLibromayor}" title="#{bundle.EditLibroMayorAerolineaTitle_idLibromayor}" required="true" requiredMessage="#{bundle.EditLibroMayorAerolineaRequiredMessage_idLibromayor}"/>
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_idBancos}" for="idBancos" />
+                    <h:inputText id="idBancos" value="#{libroMayorAerolineaController.selected.idBancos}" title="#{bundle.EditLibroMayorAerolineaTitle_idBancos}" />
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_idMovimiento}" for="idMovimiento" />
+                    <h:inputText id="idMovimiento" value="#{libroMayorAerolineaController.selected.idMovimiento}" title="#{bundle.EditLibroMayorAerolineaTitle_idMovimiento}" />
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_idPagopersonal}" for="idPagopersonal" />
+                    <h:inputText id="idPagopersonal" value="#{libroMayorAerolineaController.selected.idPagopersonal}" title="#{bundle.EditLibroMayorAerolineaTitle_idPagopersonal}" />
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_idFacturacli}" for="idFacturacli" />
+                    <h:inputText id="idFacturacli" value="#{libroMayorAerolineaController.selected.idFacturacli}" title="#{bundle.EditLibroMayorAerolineaTitle_idFacturacli}" />
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_idFacturapro}" for="idFacturapro" />
+                    <h:inputText id="idFacturapro" value="#{libroMayorAerolineaController.selected.idFacturapro}" title="#{bundle.EditLibroMayorAerolineaTitle_idFacturapro}" />
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_idAsignacion}" for="idAsignacion" />
+                    <h:inputText id="idAsignacion" value="#{libroMayorAerolineaController.selected.idAsignacion}" title="#{bundle.EditLibroMayorAerolineaTitle_idAsignacion}" />
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{libroMayorAerolineaController.selected.fecha}" title="#{bundle.EditLibroMayorAerolineaTitle_fecha}" required="true" requiredMessage="#{bundle.EditLibroMayorAerolineaRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_detalle}" for="detalle" />
+                    <h:inputText id="detalle" value="#{libroMayorAerolineaController.selected.detalle}" title="#{bundle.EditLibroMayorAerolineaTitle_detalle}" required="true" requiredMessage="#{bundle.EditLibroMayorAerolineaRequiredMessage_detalle}"/>
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_debe}" for="debe" />
+                    <h:inputText id="debe" value="#{libroMayorAerolineaController.selected.debe}" title="#{bundle.EditLibroMayorAerolineaTitle_debe}" required="true" requiredMessage="#{bundle.EditLibroMayorAerolineaRequiredMessage_debe}"/>
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_haber}" for="haber" />
+                    <h:inputText id="haber" value="#{libroMayorAerolineaController.selected.haber}" title="#{bundle.EditLibroMayorAerolineaTitle_haber}" required="true" requiredMessage="#{bundle.EditLibroMayorAerolineaRequiredMessage_haber}"/>
+                    <h:outputLabel value="#{bundle.EditLibroMayorAerolineaLabel_saldo}" for="saldo" />
+                    <h:inputText id="saldo" value="#{libroMayorAerolineaController.selected.saldo}" title="#{bundle.EditLibroMayorAerolineaTitle_saldo}" required="true" requiredMessage="#{bundle.EditLibroMayorAerolineaRequiredMessage_saldo}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{libroMayorAerolineaController.update}" value="#{bundle.EditLibroMayorAerolineaSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditLibroMayorAerolineaViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{libroMayorAerolineaController.prepareList}" value="#{bundle.EditLibroMayorAerolineaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditLibroMayorAerolineaIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

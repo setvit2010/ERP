@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFacturasProveedoresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFacturasProveedoresEmpty}" rendered="#{facturasProveedoresController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{facturasProveedoresController.items.rowCount > 0}">
+                    <h:outputText value="#{facturasProveedoresController.pagination.pageFirstItem + 1}..#{facturasProveedoresController.pagination.pageLastItem + 1}/#{facturasProveedoresController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{facturasProveedoresController.previous}" value="#{bundle.Previous} #{facturasProveedoresController.pagination.pageSize}" rendered="#{facturasProveedoresController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{facturasProveedoresController.next}" value="#{bundle.Next} #{facturasProveedoresController.pagination.pageSize}" rendered="#{facturasProveedoresController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{facturasProveedoresController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_idFacturapro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idFacturapro}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_idProveedor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProveedor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_idPedido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPedido}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_detalle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.detalle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_subtotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.subtotal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_iva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iva}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFacturasProveedoresTitle_total}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.total}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{facturasProveedoresController.prepareView}" value="#{bundle.ListFacturasProveedoresViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{facturasProveedoresController.prepareEdit}" value="#{bundle.ListFacturasProveedoresEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{facturasProveedoresController.destroy}" value="#{bundle.ListFacturasProveedoresDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{facturasProveedoresController.prepareCreate}" value="#{bundle.ListFacturasProveedoresCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListFacturasProveedoresIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTipoPeticicionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTipoPeticicionLabel_idTipoPeticion}" for="idTipoPeticion" />
+                    <h:inputText id="idTipoPeticion" value="#{tipoPeticicionController.selected.idTipoPeticion}" title="#{bundle.EditTipoPeticicionTitle_idTipoPeticion}" required="true" requiredMessage="#{bundle.EditTipoPeticicionRequiredMessage_idTipoPeticion}"/>
+                    <h:outputLabel value="#{bundle.EditTipoPeticicionLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{tipoPeticicionController.selected.descripcion}" title="#{bundle.EditTipoPeticicionTitle_descripcion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{tipoPeticicionController.update}" value="#{bundle.EditTipoPeticicionSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditTipoPeticicionViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{tipoPeticicionController.prepareList}" value="#{bundle.EditTipoPeticicionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditTipoPeticicionIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

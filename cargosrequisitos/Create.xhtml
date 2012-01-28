@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCargosrequisitosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCargosrequisitosLabel_cargosrequisitosPK_idContrato}" for="cargosrequisitosPK_idContrato" />
+                    <h:inputText id="cargosrequisitosPK_idContrato" value="#{cargosrequisitosController.selected.cargosrequisitosPK.idContrato}" title="#{bundle.CreateCargosrequisitosTitle_cargosrequisitosPK_idContrato}" required="true" requiredMessage="#{bundle.CreateCargosrequisitosRequiredMessage_cargosrequisitosPK_idContrato}"/>
+                    <h:outputLabel value="#{bundle.CreateCargosrequisitosLabel_cargosrequisitosPK_idCargo}" for="cargosrequisitosPK_idCargo" />
+                    <h:inputText id="cargosrequisitosPK_idCargo" value="#{cargosrequisitosController.selected.cargosrequisitosPK.idCargo}" title="#{bundle.CreateCargosrequisitosTitle_cargosrequisitosPK_idCargo}" required="true" requiredMessage="#{bundle.CreateCargosrequisitosRequiredMessage_cargosrequisitosPK_idCargo}"/>
+                    <h:outputLabel value="#{bundle.CreateCargosrequisitosLabel_profesion}" for="profesion" />
+                    <h:inputText id="profesion" value="#{cargosrequisitosController.selected.profesion}" title="#{bundle.CreateCargosrequisitosTitle_profesion}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cargosrequisitosController.create}" value="#{bundle.CreateCargosrequisitosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cargosrequisitosController.prepareList}" value="#{bundle.CreateCargosrequisitosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateCargosrequisitosIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

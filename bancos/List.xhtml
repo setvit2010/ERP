@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListBancosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListBancosEmpty}" rendered="#{bancosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{bancosController.items.rowCount > 0}">
+                    <h:outputText value="#{bancosController.pagination.pageFirstItem + 1}..#{bancosController.pagination.pageLastItem + 1}/#{bancosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{bancosController.previous}" value="#{bundle.Previous} #{bancosController.pagination.pageSize}" rendered="#{bancosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{bancosController.next}" value="#{bundle.Next} #{bancosController.pagination.pageSize}" rendered="#{bancosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{bancosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_idBancos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idBancos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_tipoTransaccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoTransaccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_monto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.monto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_documento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.documento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_nroCheque}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nroCheque}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_nombreBanco}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreBanco}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListBancosTitle_saldo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.saldo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{bancosController.prepareView}" value="#{bundle.ListBancosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{bancosController.prepareEdit}" value="#{bundle.ListBancosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{bancosController.destroy}" value="#{bundle.ListBancosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{bancosController.prepareCreate}" value="#{bundle.ListBancosCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListBancosIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

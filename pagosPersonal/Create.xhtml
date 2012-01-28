@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePagosPersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePagosPersonalLabel_idPagopersonal}" for="idPagopersonal" />
+                    <h:inputText id="idPagopersonal" value="#{pagosPersonalController.selected.idPagopersonal}" title="#{bundle.CreatePagosPersonalTitle_idPagopersonal}" required="true" requiredMessage="#{bundle.CreatePagosPersonalRequiredMessage_idPagopersonal}"/>
+                    <h:outputLabel value="#{bundle.CreatePagosPersonalLabel_idSueldos}" for="idSueldos" />
+                    <h:inputText id="idSueldos" value="#{pagosPersonalController.selected.idSueldos}" title="#{bundle.CreatePagosPersonalTitle_idSueldos}" />
+                    <h:outputLabel value="#{bundle.CreatePagosPersonalLabel_idEmpleado}" for="idEmpleado" />
+                    <h:inputText id="idEmpleado" value="#{pagosPersonalController.selected.idEmpleado}" title="#{bundle.CreatePagosPersonalTitle_idEmpleado}" />
+                    <h:outputLabel value="#{bundle.CreatePagosPersonalLabel_idAnticipo}" for="idAnticipo" />
+                    <h:inputText id="idAnticipo" value="#{pagosPersonalController.selected.idAnticipo}" title="#{bundle.CreatePagosPersonalTitle_idAnticipo}" />
+                    <h:outputLabel value="#{bundle.CreatePagosPersonalLabel_fechaPago}" for="fechaPago" />
+                    <h:inputText id="fechaPago" value="#{pagosPersonalController.selected.fechaPago}" title="#{bundle.CreatePagosPersonalTitle_fechaPago}" required="true" requiredMessage="#{bundle.CreatePagosPersonalRequiredMessage_fechaPago}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePagosPersonalLabel_pagoTotal}" for="pagoTotal" />
+                    <h:inputText id="pagoTotal" value="#{pagosPersonalController.selected.pagoTotal}" title="#{bundle.CreatePagosPersonalTitle_pagoTotal}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pagosPersonalController.create}" value="#{bundle.CreatePagosPersonalSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pagosPersonalController.prepareList}" value="#{bundle.CreatePagosPersonalShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreatePagosPersonalIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

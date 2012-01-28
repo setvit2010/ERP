@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditRutaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditRutaLabel_idRuta}" for="idRuta" />
+                    <h:inputText id="idRuta" value="#{rutaController.selected.idRuta}" title="#{bundle.EditRutaTitle_idRuta}" required="true" requiredMessage="#{bundle.EditRutaRequiredMessage_idRuta}"/>
+                    <h:outputLabel value="#{bundle.EditRutaLabel_origen}" for="origen" />
+                    <h:inputText id="origen" value="#{rutaController.selected.origen}" title="#{bundle.EditRutaTitle_origen}" />
+                    <h:outputLabel value="#{bundle.EditRutaLabel_destino}" for="destino" />
+                    <h:inputText id="destino" value="#{rutaController.selected.destino}" title="#{bundle.EditRutaTitle_destino}" />
+                    <h:outputLabel value="#{bundle.EditRutaLabel_nroEscalas}" for="nroEscalas" />
+                    <h:inputText id="nroEscalas" value="#{rutaController.selected.nroEscalas}" title="#{bundle.EditRutaTitle_nroEscalas}" />
+                    <h:outputLabel value="#{bundle.EditRutaLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{rutaController.selected.descripcion}" title="#{bundle.EditRutaTitle_descripcion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{rutaController.update}" value="#{bundle.EditRutaSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditRutaViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{rutaController.prepareList}" value="#{bundle.EditRutaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditRutaIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

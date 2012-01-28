@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewViajesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewViajesLabel_idViaje}"/>
+                    <h:outputText value="#{viajesController.selected.idViaje}" title="#{bundle.ViewViajesTitle_idViaje}"/>
+                    <h:outputText value="#{bundle.ViewViajesLabel_idAeropuerto}"/>
+                    <h:outputText value="#{viajesController.selected.idAeropuerto}" title="#{bundle.ViewViajesTitle_idAeropuerto}"/>
+                    <h:outputText value="#{bundle.ViewViajesLabel_idRuta}"/>
+                    <h:outputText value="#{viajesController.selected.idRuta}" title="#{bundle.ViewViajesTitle_idRuta}"/>
+                    <h:outputText value="#{bundle.ViewViajesLabel_fechaSalida}"/>
+                    <h:outputText value="#{viajesController.selected.fechaSalida}" title="#{bundle.ViewViajesTitle_fechaSalida}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewViajesLabel_fechaDestino}"/>
+                    <h:outputText value="#{viajesController.selected.fechaDestino}" title="#{bundle.ViewViajesTitle_fechaDestino}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewViajesLabel_nroPasajeros}"/>
+                    <h:outputText value="#{viajesController.selected.nroPasajeros}" title="#{bundle.ViewViajesTitle_nroPasajeros}"/>
+                    <h:outputText value="#{bundle.ViewViajesLabel_nroAsistentes}"/>
+                    <h:outputText value="#{viajesController.selected.nroAsistentes}" title="#{bundle.ViewViajesTitle_nroAsistentes}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{viajesController.destroyAndView}" value="#{bundle.ViewViajesDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewViajesEditLink}"/>
+                <br />
+                <h:commandLink action="#{viajesController.prepareCreate}" value="#{bundle.ViewViajesCreateLink}" />
+                <br />
+                <h:commandLink action="#{viajesController.prepareList}" value="#{bundle.ViewViajesShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewViajesIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

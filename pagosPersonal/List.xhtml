@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPagosPersonalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPagosPersonalEmpty}" rendered="#{pagosPersonalController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{pagosPersonalController.items.rowCount > 0}">
+                    <h:outputText value="#{pagosPersonalController.pagination.pageFirstItem + 1}..#{pagosPersonalController.pagination.pageLastItem + 1}/#{pagosPersonalController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{pagosPersonalController.previous}" value="#{bundle.Previous} #{pagosPersonalController.pagination.pageSize}" rendered="#{pagosPersonalController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{pagosPersonalController.next}" value="#{bundle.Next} #{pagosPersonalController.pagination.pageSize}" rendered="#{pagosPersonalController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{pagosPersonalController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPagosPersonalTitle_idPagopersonal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPagopersonal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPagosPersonalTitle_idSueldos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSueldos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPagosPersonalTitle_idEmpleado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEmpleado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPagosPersonalTitle_idAnticipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAnticipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPagosPersonalTitle_fechaPago}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaPago}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPagosPersonalTitle_pagoTotal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pagoTotal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{pagosPersonalController.prepareView}" value="#{bundle.ListPagosPersonalViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pagosPersonalController.prepareEdit}" value="#{bundle.ListPagosPersonalEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pagosPersonalController.destroy}" value="#{bundle.ListPagosPersonalDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{pagosPersonalController.prepareCreate}" value="#{bundle.ListPagosPersonalCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListPagosPersonalIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

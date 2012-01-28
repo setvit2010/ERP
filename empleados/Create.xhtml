@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEmpleadosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_idEmpleado}" for="idEmpleado" />
+                    <h:inputText id="idEmpleado" value="#{empleadosController.selected.idEmpleado}" title="#{bundle.CreateEmpleadosTitle_idEmpleado}" required="true" requiredMessage="#{bundle.CreateEmpleadosRequiredMessage_idEmpleado}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_idContrato}" for="idContrato" />
+                    <h:inputText id="idContrato" value="#{empleadosController.selected.idContrato}" title="#{bundle.CreateEmpleadosTitle_idContrato}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_idTrabajaen}" for="idTrabajaen" />
+                    <h:inputText id="idTrabajaen" value="#{empleadosController.selected.idTrabajaen}" title="#{bundle.CreateEmpleadosTitle_idTrabajaen}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_idTrablab}" for="idTrablab" />
+                    <h:inputText id="idTrablab" value="#{empleadosController.selected.idTrablab}" title="#{bundle.CreateEmpleadosTitle_idTrablab}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_idCargo}" for="idCargo" />
+                    <h:inputText id="idCargo" value="#{empleadosController.selected.idCargo}" title="#{bundle.CreateEmpleadosTitle_idCargo}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_idEstado}" for="idEstado" />
+                    <h:inputText id="idEstado" value="#{empleadosController.selected.idEstado}" title="#{bundle.CreateEmpleadosTitle_idEstado}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{empleadosController.selected.nombre}" title="#{bundle.CreateEmpleadosTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_apellido}" for="apellido" />
+                    <h:inputText id="apellido" value="#{empleadosController.selected.apellido}" title="#{bundle.CreateEmpleadosTitle_apellido}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{empleadosController.selected.cedula}" title="#{bundle.CreateEmpleadosTitle_cedula}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{empleadosController.selected.direccion}" title="#{bundle.CreateEmpleadosTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{empleadosController.selected.telefono}" title="#{bundle.CreateEmpleadosTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_estadoCivil}" for="estadoCivil" />
+                    <h:inputText id="estadoCivil" value="#{empleadosController.selected.estadoCivil}" title="#{bundle.CreateEmpleadosTitle_estadoCivil}" />
+                    <h:outputLabel value="#{bundle.CreateEmpleadosLabel_fechaDenacimiento}" for="fechaDenacimiento" />
+                    <h:inputText id="fechaDenacimiento" value="#{empleadosController.selected.fechaDenacimiento}" title="#{bundle.CreateEmpleadosTitle_fechaDenacimiento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{empleadosController.create}" value="#{bundle.CreateEmpleadosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{empleadosController.prepareList}" value="#{bundle.CreateEmpleadosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateEmpleadosIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFacturasClientesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_idFacturacli}" for="idFacturacli" />
+                    <h:inputText id="idFacturacli" value="#{facturasClientesController.selected.idFacturacli}" title="#{bundle.CreateFacturasClientesTitle_idFacturacli}" required="true" requiredMessage="#{bundle.CreateFacturasClientesRequiredMessage_idFacturacli}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_idBoleto}" for="idBoleto" />
+                    <h:inputText id="idBoleto" value="#{facturasClientesController.selected.idBoleto}" title="#{bundle.CreateFacturasClientesTitle_idBoleto}" />
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_idCliente}" for="idCliente" />
+                    <h:inputText id="idCliente" value="#{facturasClientesController.selected.idCliente}" title="#{bundle.CreateFacturasClientesTitle_idCliente}" />
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_idViaje}" for="idViaje" />
+                    <h:inputText id="idViaje" value="#{facturasClientesController.selected.idViaje}" title="#{bundle.CreateFacturasClientesTitle_idViaje}" />
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{facturasClientesController.selected.fecha}" title="#{bundle.CreateFacturasClientesTitle_fecha}" required="true" requiredMessage="#{bundle.CreateFacturasClientesRequiredMessage_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_cantidadBoletos}" for="cantidadBoletos" />
+                    <h:inputText id="cantidadBoletos" value="#{facturasClientesController.selected.cantidadBoletos}" title="#{bundle.CreateFacturasClientesTitle_cantidadBoletos}" required="true" requiredMessage="#{bundle.CreateFacturasClientesRequiredMessage_cantidadBoletos}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_detalle}" for="detalle" />
+                    <h:inputText id="detalle" value="#{facturasClientesController.selected.detalle}" title="#{bundle.CreateFacturasClientesTitle_detalle}" required="true" requiredMessage="#{bundle.CreateFacturasClientesRequiredMessage_detalle}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_subtotal}" for="subtotal" />
+                    <h:inputText id="subtotal" value="#{facturasClientesController.selected.subtotal}" title="#{bundle.CreateFacturasClientesTitle_subtotal}" required="true" requiredMessage="#{bundle.CreateFacturasClientesRequiredMessage_subtotal}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_iva}" for="iva" />
+                    <h:inputText id="iva" value="#{facturasClientesController.selected.iva}" title="#{bundle.CreateFacturasClientesTitle_iva}" required="true" requiredMessage="#{bundle.CreateFacturasClientesRequiredMessage_iva}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturasClientesLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{facturasClientesController.selected.total}" title="#{bundle.CreateFacturasClientesTitle_total}" required="true" requiredMessage="#{bundle.CreateFacturasClientesRequiredMessage_total}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{facturasClientesController.create}" value="#{bundle.CreateFacturasClientesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{facturasClientesController.prepareList}" value="#{bundle.CreateFacturasClientesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateFacturasClientesIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

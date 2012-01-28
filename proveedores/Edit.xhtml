@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProveedoresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_idProveedor}" for="idProveedor" />
+                    <h:inputText id="idProveedor" value="#{proveedoresController.selected.idProveedor}" title="#{bundle.EditProveedoresTitle_idProveedor}" required="true" requiredMessage="#{bundle.EditProveedoresRequiredMessage_idProveedor}"/>
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{proveedoresController.selected.nombre}" title="#{bundle.EditProveedoresTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_ruc}" for="ruc" />
+                    <h:inputText id="ruc" value="#{proveedoresController.selected.ruc}" title="#{bundle.EditProveedoresTitle_ruc}" />
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_nroCuentab}" for="nroCuentab" />
+                    <h:inputText id="nroCuentab" value="#{proveedoresController.selected.nroCuentab}" title="#{bundle.EditProveedoresTitle_nroCuentab}" />
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{proveedoresController.selected.descripcion}" title="#{bundle.EditProveedoresTitle_descripcion}" />
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_telfono}" for="telfono" />
+                    <h:inputText id="telfono" value="#{proveedoresController.selected.telfono}" title="#{bundle.EditProveedoresTitle_telfono}" />
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{proveedoresController.selected.direccion}" title="#{bundle.EditProveedoresTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.EditProveedoresLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{proveedoresController.selected.email}" title="#{bundle.EditProveedoresTitle_email}" />
+                </h:panelGrid>
+                <h:commandLink action="#{proveedoresController.update}" value="#{bundle.EditProveedoresSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditProveedoresViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{proveedoresController.prepareList}" value="#{bundle.EditProveedoresShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditProveedoresIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

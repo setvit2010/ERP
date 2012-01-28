@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTrabajolaboralTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTrabajolaboralEmpty}" rendered="#{trabajolaboralController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{trabajolaboralController.items.rowCount > 0}">
+                    <h:outputText value="#{trabajolaboralController.pagination.pageFirstItem + 1}..#{trabajolaboralController.pagination.pageLastItem + 1}/#{trabajolaboralController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{trabajolaboralController.previous}" value="#{bundle.Previous} #{trabajolaboralController.pagination.pageSize}" rendered="#{trabajolaboralController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{trabajolaboralController.next}" value="#{bundle.Next} #{trabajolaboralController.pagination.pageSize}" rendered="#{trabajolaboralController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{trabajolaboralController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTrabajolaboralTitle_idTrablab}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTrablab}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTrabajolaboralTitle_idCargo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCargo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTrabajolaboralTitle_tiempoLaborado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiempoLaborado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{trabajolaboralController.prepareView}" value="#{bundle.ListTrabajolaboralViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{trabajolaboralController.prepareEdit}" value="#{bundle.ListTrabajolaboralEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{trabajolaboralController.destroy}" value="#{bundle.ListTrabajolaboralDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{trabajolaboralController.prepareCreate}" value="#{bundle.ListTrabajolaboralCreateLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ListTrabajolaboralIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

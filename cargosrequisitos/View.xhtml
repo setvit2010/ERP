@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCargosrequisitosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCargosrequisitosLabel_cargosrequisitosPK_idContrato}"/>
+                    <h:outputText value="#{cargosrequisitosController.selected.cargosrequisitosPK.idContrato}" title="#{bundle.ViewCargosrequisitosTitle_cargosrequisitosPK_idContrato}"/>
+                    <h:outputText value="#{bundle.ViewCargosrequisitosLabel_cargosrequisitosPK_idCargo}"/>
+                    <h:outputText value="#{cargosrequisitosController.selected.cargosrequisitosPK.idCargo}" title="#{bundle.ViewCargosrequisitosTitle_cargosrequisitosPK_idCargo}"/>
+                    <h:outputText value="#{bundle.ViewCargosrequisitosLabel_profesion}"/>
+                    <h:outputText value="#{cargosrequisitosController.selected.profesion}" title="#{bundle.ViewCargosrequisitosTitle_profesion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cargosrequisitosController.destroyAndView}" value="#{bundle.ViewCargosrequisitosDestroyLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="Edit" value="#{bundle.ViewCargosrequisitosEditLink}"/>
+                <br />
+                <h:commandLink action="#{cargosrequisitosController.prepareCreate}" value="#{bundle.ViewCargosrequisitosCreateLink}" />
+                <br />
+                <h:commandLink action="#{cargosrequisitosController.prepareList}" value="#{bundle.ViewCargosrequisitosShowAllLink}"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.ViewCargosrequisitosIndexLink}" action="/index" immediate="true" />
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
