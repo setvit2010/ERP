@@ -23,17 +23,15 @@
                     <h:outputText value="#{cargosrequisitosController.selected.profesion}" title="#{bundle.ViewCargosrequisitosTitle_profesion}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{cargosrequisitosController.destroyAndView}" value="#{bundle.ViewCargosrequisitosDestroyLink}"/>
+                <h:commandButton action="#{cargosrequisitosController.destroyAndView}" value="#{bundle.ViewCargosrequisitosDestroyLink}"/>
+
+                <h:commandButton action="Edit" value="#{bundle.ViewCargosrequisitosEditLink}"/>
                 <br />
+                <h:commandButton action="#{cargosrequisitosController.prepareCreate}" value="#{bundle.ViewCargosrequisitosCreateLink}" />
                 <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewCargosrequisitosEditLink}"/>
-                <br />
-                <h:commandLink action="#{cargosrequisitosController.prepareCreate}" value="#{bundle.ViewCargosrequisitosCreateLink}" />
-                <br />
-                <h:commandLink action="#{cargosrequisitosController.prepareList}" value="#{bundle.ViewCargosrequisitosShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewCargosrequisitosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{cargosrequisitosController.prepareList}" value="#{bundle.ViewCargosrequisitosShowAllLink}"/>
+
+                <h:commandButton value="#{bundle.ViewCargosrequisitosIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
