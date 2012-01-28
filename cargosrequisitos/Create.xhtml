@@ -23,13 +23,11 @@
                     <h:inputText id="profesion" value="#{cargosrequisitosController.selected.profesion}" title="#{bundle.CreateCargosrequisitosTitle_profesion}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{cargosrequisitosController.create}" value="#{bundle.CreateCargosrequisitosSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{cargosrequisitosController.prepareList}" value="#{bundle.CreateCargosrequisitosShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateCargosrequisitosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{cargosrequisitosController.create}" value="#{bundle.CreateCargosrequisitosSaveLink}" />
+
+                <h:commandButton action="#{cargosrequisitosController.prepareList}" value="#{bundle.CreateCargosrequisitosShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.CreateCargosrequisitosIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
