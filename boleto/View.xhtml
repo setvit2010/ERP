@@ -29,17 +29,15 @@
                     <h:outputText value="#{boletoController.selected.clase}" title="#{bundle.ViewBoletoTitle_clase}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{boletoController.destroyAndView}" value="#{bundle.ViewBoletoDestroyLink}"/>
+                <h:commandButton action="#{boletoController.destroyAndView}" value="#{bundle.ViewBoletoDestroyLink}"/>
+
+                <h:commandButton action="Edit" value="#{bundle.ViewBoletoEditLink}"/>
                 <br />
+                <h:commandButton action="#{boletoController.prepareCreate}" value="#{bundle.ViewBoletoCreateLink}" />
                 <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewBoletoEditLink}"/>
-                <br />
-                <h:commandLink action="#{boletoController.prepareCreate}" value="#{bundle.ViewBoletoCreateLink}" />
-                <br />
-                <h:commandLink action="#{boletoController.prepareList}" value="#{bundle.ViewBoletoShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewBoletoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{boletoController.prepareList}" value="#{bundle.ViewBoletoShowAllLink}"/>
+
+                <h:commandButton value="#{bundle.ViewBoletoIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
