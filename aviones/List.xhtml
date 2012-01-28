@@ -66,19 +66,18 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{avionesController.prepareView}" value="#{bundle.ListAvionesViewLink}"/>
+                            <h:commandButton action="#{avionesController.prepareView}" value="#{bundle.ListAvionesViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{avionesController.prepareEdit}" value="#{bundle.ListAvionesEditLink}"/>
+                            <h:commandButton action="#{avionesController.prepareEdit}" value="#{bundle.ListAvionesEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{avionesController.destroy}" value="#{bundle.ListAvionesDestroyLink}"/>
+                            <h:commandButton action="#{avionesController.destroy}" value="#{bundle.ListAvionesDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{avionesController.prepareCreate}" value="#{bundle.ListAvionesCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListAvionesIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{avionesController.prepareCreate}" value="#{bundle.ListAvionesCreateLink}"/>
+                
+                <h:commandButton value="#{bundle.ListAvionesIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
