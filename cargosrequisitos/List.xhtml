@@ -51,10 +51,9 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{cargosrequisitosController.prepareCreate}" value="#{bundle.ListCargosrequisitosCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListCargosrequisitosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{cargosrequisitosController.prepareCreate}" value="#{bundle.ListCargosrequisitosCreateLink}"/>
+
+                <h:commandButton value="#{bundle.ListCargosrequisitosIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
