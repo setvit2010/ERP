@@ -31,13 +31,11 @@
                     <h:inputText id="anio" value="#{avionesController.selected.anio}" title="#{bundle.CreateAvionesTitle_anio}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{avionesController.create}" value="#{bundle.CreateAvionesSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{avionesController.prepareList}" value="#{bundle.CreateAvionesShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateAvionesIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{avionesController.create}" value="#{bundle.CreateAvionesSaveLink}" />
+
+                <h:commandButton action="#{avionesController.prepareList}" value="#{bundle.CreateAvionesShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.CreateAvionesIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
