@@ -17,8 +17,8 @@
                 <h:outputText escape="false" value="#{bundle.ListDepartamentoEmpty}" rendered="#{departamentoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{departamentoController.items.rowCount > 0}">
                     <h:outputText value="#{departamentoController.pagination.pageFirstItem + 1}..#{departamentoController.pagination.pageLastItem + 1}/#{departamentoController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{departamentoController.previous}" value="#{bundle.Previous} #{departamentoController.pagination.pageSize}" rendered="#{departamentoController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{departamentoController.next}" value="#{bundle.Next} #{departamentoController.pagination.pageSize}" rendered="#{departamentoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:commandButton action="#{departamentoController.previous}" value="#{bundle.Previous} #{departamentoController.pagination.pageSize}" rendered="#{departamentoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton action="#{departamentoController.next}" value="#{bundle.Next} #{departamentoController.pagination.pageSize}" rendered="#{departamentoController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{departamentoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
@@ -36,19 +36,18 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{departamentoController.prepareView}" value="#{bundle.ListDepartamentoViewLink}"/>
+                            <h:commandButton action="#{departamentoController.prepareView}" value="#{bundle.ListDepartamentoViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{departamentoController.prepareEdit}" value="#{bundle.ListDepartamentoEditLink}"/>
+                            <h:commandButton action="#{departamentoController.prepareEdit}" value="#{bundle.ListDepartamentoEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{departamentoController.destroy}" value="#{bundle.ListDepartamentoDestroyLink}"/>
+                            <h:commandButton action="#{departamentoController.destroy}" value="#{bundle.ListDepartamentoDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{departamentoController.prepareCreate}" value="#{bundle.ListDepartamentoCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListDepartamentoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{departamentoController.prepareCreate}" value="#{bundle.ListDepartamentoCreateLink}"/>
+
+                <h:commandButton value="#{bundle.ListDepartamentoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
