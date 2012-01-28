@@ -29,13 +29,11 @@
                     <h:inputText id="clase" value="#{boletoController.selected.clase}" title="#{bundle.CreateBoletoTitle_clase}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{boletoController.create}" value="#{bundle.CreateBoletoSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{boletoController.prepareList}" value="#{bundle.CreateBoletoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateBoletoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{boletoController.create}" value="#{bundle.CreateBoletoSaveLink}" />
+
+                <h:commandButton action="#{boletoController.prepareList}" value="#{bundle.CreateBoletoShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.CreateBoletoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
