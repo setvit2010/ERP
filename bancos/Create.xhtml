@@ -37,13 +37,10 @@
                     <h:inputText id="saldo" value="#{bancosController.selected.saldo}" title="#{bundle.CreateBancosTitle_saldo}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{bancosController.create}" value="#{bundle.CreateBancosSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{bancosController.prepareList}" value="#{bundle.CreateBancosShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateBancosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{bancosController.create}" value="#{bundle.CreateBancosSaveLink}" />
+                <h:commandButton action="#{bancosController.prepareList}" value="#{bundle.CreateBancosShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.CreateBancosIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
