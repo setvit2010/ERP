@@ -34,15 +34,13 @@
                     <h:outputLabel value="#{bundle.EditFacturasProveedoresLabel_total}" for="total" />
                     <h:inputText id="total" value="#{facturasProveedoresController.selected.total}" title="#{bundle.EditFacturasProveedoresTitle_total}" />
                 </h:panelGrid>
-                <h:commandLink action="#{facturasProveedoresController.update}" value="#{bundle.EditFacturasProveedoresSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditFacturasProveedoresViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{facturasProveedoresController.prepareList}" value="#{bundle.EditFacturasProveedoresShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditFacturasProveedoresIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{facturasProveedoresController.update}" value="#{bundle.EditFacturasProveedoresSaveLink}"/>
+                
+                <h:commandButton action="View" value="#{bundle.EditFacturasProveedoresViewLink}" immediate="true"/>
+          
+                <h:commandButton action="#{facturasProveedoresController.prepareList}" value="#{bundle.EditFacturasProveedoresShowAllLink}" immediate="true"/>
+                
+                <h:commandButton value="#{bundle.EditFacturasProveedoresIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
