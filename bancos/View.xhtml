@@ -37,17 +37,15 @@
                     <h:outputText value="#{bancosController.selected.saldo}" title="#{bundle.ViewBancosTitle_saldo}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{bancosController.destroyAndView}" value="#{bundle.ViewBancosDestroyLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewBancosEditLink}"/>
-                <br />
-                <h:commandLink action="#{bancosController.prepareCreate}" value="#{bundle.ViewBancosCreateLink}" />
-                <br />
-                <h:commandLink action="#{bancosController.prepareList}" value="#{bundle.ViewBancosShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewBancosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{bancosController.destroyAndView}" value="#{bundle.ViewBancosDestroyLink}"/>
+              
+                <h:commandButton action="Edit" value="#{bundle.ViewBancosEditLink}"/>
+                
+                <h:commandButton action="#{bancosController.prepareCreate}" value="#{bundle.ViewBancosCreateLink}" />
+               
+                <h:commandButton action="#{bancosController.prepareList}" value="#{bundle.ViewBancosShowAllLink}"/>
+               
+                <h:commandButton value="#{bundle.ViewBancosIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
