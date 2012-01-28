@@ -28,14 +28,12 @@
                     <h:outputLabel value="#{bundle.EditBoletoLabel_clase}" for="clase" />
                     <h:inputText id="clase" value="#{boletoController.selected.clase}" title="#{bundle.EditBoletoTitle_clase}" />
                 </h:panelGrid>
-                <h:commandLink action="#{boletoController.update}" value="#{bundle.EditBoletoSaveLink}"/>
+                <h:commandButton action="#{boletoController.update}" value="#{bundle.EditBoletoSaveLink}"/>
+
+                <h:commandButton action="View" value="#{bundle.EditBoletoViewLink}" immediate="true"/>
                 <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditBoletoViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{boletoController.prepareList}" value="#{bundle.EditBoletoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
+                <h:commandButton action="#{boletoController.prepareList}" value="#{bundle.EditBoletoShowAllLink}" immediate="true"/>
+
                 <h:commandLink value="#{bundle.EditBoletoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
