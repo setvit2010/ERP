@@ -35,17 +35,15 @@
                     <h:outputText value="#{facturasProveedoresController.selected.total}" title="#{bundle.ViewFacturasProveedoresTitle_total}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{facturasProveedoresController.destroyAndView}" value="#{bundle.ViewFacturasProveedoresDestroyLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewFacturasProveedoresEditLink}"/>
-                <br />
-                <h:commandLink action="#{facturasProveedoresController.prepareCreate}" value="#{bundle.ViewFacturasProveedoresCreateLink}" />
-                <br />
-                <h:commandLink action="#{facturasProveedoresController.prepareList}" value="#{bundle.ViewFacturasProveedoresShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewFacturasProveedoresIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{facturasProveedoresController.destroyAndView}" value="#{bundle.ViewFacturasProveedoresDestroyLink}"/>
+               
+                <h:commandButton action="Edit" value="#{bundle.ViewFacturasProveedoresEditLink}"/>
+  
+                <h:commandButton action="#{facturasProveedoresController.prepareCreate}" value="#{bundle.ViewFacturasProveedoresCreateLink}" />
+      
+                <h:commandButton action="#{facturasProveedoresController.prepareList}" value="#{bundle.ViewFacturasProveedoresShowAllLink}"/>
+                
+                <h:commandButton value="#{bundle.ViewFacturasProveedoresIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
