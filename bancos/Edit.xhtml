@@ -36,15 +36,13 @@
                     <h:outputLabel value="#{bundle.EditBancosLabel_saldo}" for="saldo" />
                     <h:inputText id="saldo" value="#{bancosController.selected.saldo}" title="#{bundle.EditBancosTitle_saldo}" />
                 </h:panelGrid>
-                <h:commandLink action="#{bancosController.update}" value="#{bundle.EditBancosSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditBancosViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{bancosController.prepareList}" value="#{bundle.EditBancosShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditBancosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{bancosController.update}" value="#{bundle.EditBancosSaveLink}"/>
+              
+                <h:commandButtonaction="View" value="#{bundle.EditBancosViewLink}" immediate="true"/>
+               
+                <h:commandButton action="#{bancosController.prepareList}" value="#{bundle.EditBancosShowAllLink}" immediate="true"/>
+                
+                <h:commandButton value="#{bundle.EditBancosIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
