@@ -21,17 +21,15 @@
                     <h:outputText value="#{contratosController.selected.idPeticion}" title="#{bundle.ViewContratosTitle_idPeticion}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{contratosController.destroyAndView}" value="#{bundle.ViewContratosDestroyLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewContratosEditLink}"/>
-                <br />
-                <h:commandLink action="#{contratosController.prepareCreate}" value="#{bundle.ViewContratosCreateLink}" />
-                <br />
-                <h:commandLink action="#{contratosController.prepareList}" value="#{bundle.ViewContratosShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewContratosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{contratosController.destroyAndView}" value="#{bundle.ViewContratosDestroyLink}"/>
+                
+                <h:commandButton action="Edit" value="#{bundle.ViewContratosEditLink}"/>
+        
+                <h:commandButton action="#{contratosController.prepareCreate}" value="#{bundle.ViewContratosCreateLink}" />
+           
+                <h:commandButton action="#{contratosController.prepareList}" value="#{bundle.ViewContratosShowAllLink}"/>
+             
+                <h:commandButton value="#{bundle.ViewContratosIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
