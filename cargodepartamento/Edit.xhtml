@@ -22,15 +22,13 @@
                     <h:outputLabel value="#{bundle.EditCargodepartamentoLabel_cargoProfesion}" for="cargoProfesion" />
                     <h:inputText id="cargoProfesion" value="#{cargodepartamentoController.selected.cargoProfesion}" title="#{bundle.EditCargodepartamentoTitle_cargoProfesion}" />
                 </h:panelGrid>
-                <h:commandLink action="#{cargodepartamentoController.update}" value="#{bundle.EditCargodepartamentoSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditCargodepartamentoViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{cargodepartamentoController.prepareList}" value="#{bundle.EditCargodepartamentoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditCargodepartamentoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{cargodepartamentoController.update}" value="#{bundle.EditCargodepartamentoSaveLink}"/>
+                
+                <h:commandButton action="View" value="#{bundle.EditCargodepartamentoViewLink}" immediate="true"/>
+        
+                <h:commandButton action="#{cargodepartamentoController.prepareList}" value="#{bundle.EditCargodepartamentoShowAllLink}" immediate="true"/>
+            
+                <h:commandButton value="#{bundle.EditCargodepartamentoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
