@@ -31,13 +31,11 @@
                     </h:inputText>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{inventarioController.create}" value="#{bundle.CreateInventarioSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{inventarioController.prepareList}" value="#{bundle.CreateInventarioShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateInventarioIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{inventarioController.create}" value="#{bundle.CreateInventarioSaveLink}" />
+
+                <h:commandButton action="#{inventarioController.prepareList}" value="#{bundle.CreateInventarioShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.CreateInventarioIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
