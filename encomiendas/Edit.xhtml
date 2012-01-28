@@ -24,15 +24,13 @@
                     <h:outputLabel value="#{bundle.EditEncomiendasLabel_descripcion}" for="descripcion" />
                     <h:inputText id="descripcion" value="#{encomiendasController.selected.descripcion}" title="#{bundle.EditEncomiendasTitle_descripcion}" />
                 </h:panelGrid>
-                <h:commandLink action="#{encomiendasController.update}" value="#{bundle.EditEncomiendasSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditEncomiendasViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{encomiendasController.prepareList}" value="#{bundle.EditEncomiendasShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditEncomiendasIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{encomiendasController.update}" value="#{bundle.EditEncomiendasSaveLink}"/>
+               
+                <h:commandButton action="View" value="#{bundle.EditEncomiendasViewLink}" immediate="true"/>
+              
+                <h:commandButton action="#{encomiendasController.prepareList}" value="#{bundle.EditEncomiendasShowAllLink}" immediate="true"/>
+              
+                <h:commandButtonvalue="#{bundle.EditEncomiendasIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
