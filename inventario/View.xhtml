@@ -31,17 +31,15 @@
                     </h:outputText>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{inventarioController.destroyAndView}" value="#{bundle.ViewInventarioDestroyLink}"/>
+                <h:commandButton action="#{inventarioController.destroyAndView}" value="#{bundle.ViewInventarioDestroyLink}"/>
+
+                <h:commandButton action="Edit" value="#{bundle.ViewInventarioEditLink}"/>
                 <br />
+                <h:commandButton action="#{inventarioController.prepareCreate}" value="#{bundle.ViewInventarioCreateLink}" />
                 <br />
-                <h:commandLink action="Edit" value="#{bundle.ViewInventarioEditLink}"/>
-                <br />
-                <h:commandLink action="#{inventarioController.prepareCreate}" value="#{bundle.ViewInventarioCreateLink}" />
-                <br />
-                <h:commandLink action="#{inventarioController.prepareList}" value="#{bundle.ViewInventarioShowAllLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ViewInventarioIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{inventarioController.prepareList}" value="#{bundle.ViewInventarioShowAllLink}"/>
+
+                <h:commandButton value="#{bundle.ViewInventarioIndexLink}" action="/index" immediate="true" />
 
             </h:form>
         </ui:define>
