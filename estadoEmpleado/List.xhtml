@@ -17,8 +17,8 @@
                 <h:outputText escape="false" value="#{bundle.ListEstadoEmpleadoEmpty}" rendered="#{estadoEmpleadoController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{estadoEmpleadoController.items.rowCount > 0}">
                     <h:outputText value="#{estadoEmpleadoController.pagination.pageFirstItem + 1}..#{estadoEmpleadoController.pagination.pageLastItem + 1}/#{estadoEmpleadoController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{estadoEmpleadoController.previous}" value="#{bundle.Previous} #{estadoEmpleadoController.pagination.pageSize}" rendered="#{estadoEmpleadoController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{estadoEmpleadoController.next}" value="#{bundle.Next} #{estadoEmpleadoController.pagination.pageSize}" rendered="#{estadoEmpleadoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:commandButton action="#{estadoEmpleadoController.previous}" value="#{bundle.Previous} #{estadoEmpleadoController.pagination.pageSize}" rendered="#{estadoEmpleadoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton action="#{estadoEmpleadoController.next}" value="#{bundle.Next} #{estadoEmpleadoController.pagination.pageSize}" rendered="#{estadoEmpleadoController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{estadoEmpleadoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
@@ -42,19 +42,18 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{estadoEmpleadoController.prepareView}" value="#{bundle.ListEstadoEmpleadoViewLink}"/>
+                            <h:commandButton action="#{estadoEmpleadoController.prepareView}" value="#{bundle.ListEstadoEmpleadoViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{estadoEmpleadoController.prepareEdit}" value="#{bundle.ListEstadoEmpleadoEditLink}"/>
+                            <h:commandButton action="#{estadoEmpleadoController.prepareEdit}" value="#{bundle.ListEstadoEmpleadoEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{estadoEmpleadoController.destroy}" value="#{bundle.ListEstadoEmpleadoDestroyLink}"/>
+                            <h:commandButton action="#{estadoEmpleadoController.destroy}" value="#{bundle.ListEstadoEmpleadoDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{estadoEmpleadoController.prepareCreate}" value="#{bundle.ListEstadoEmpleadoCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListEstadoEmpleadoIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{estadoEmpleadoController.prepareCreate}" value="#{bundle.ListEstadoEmpleadoCreateLink}"/>
+
+                <h:commandButton value="#{bundle.ListEstadoEmpleadoIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
