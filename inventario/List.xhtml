@@ -17,8 +17,8 @@
                 <h:outputText escape="false" value="#{bundle.ListInventarioEmpty}" rendered="#{inventarioController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{inventarioController.items.rowCount > 0}">
                     <h:outputText value="#{inventarioController.pagination.pageFirstItem + 1}..#{inventarioController.pagination.pageLastItem + 1}/#{inventarioController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{inventarioController.previous}" value="#{bundle.Previous} #{inventarioController.pagination.pageSize}" rendered="#{inventarioController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{inventarioController.next}" value="#{bundle.Next} #{inventarioController.pagination.pageSize}" rendered="#{inventarioController.pagination.hasNextPage}"/>&nbsp;
+                    <h:commandButton action="#{inventarioController.previous}" value="#{bundle.Previous} #{inventarioController.pagination.pageSize}" rendered="#{inventarioController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton action="#{inventarioController.next}" value="#{bundle.Next} #{inventarioController.pagination.pageSize}" rendered="#{inventarioController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{inventarioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
@@ -62,19 +62,18 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{inventarioController.prepareView}" value="#{bundle.ListInventarioViewLink}"/>
+                            <h:commandButton action="#{inventarioController.prepareView}" value="#{bundle.ListInventarioViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{inventarioController.prepareEdit}" value="#{bundle.ListInventarioEditLink}"/>
+                            <h:commandButton action="#{inventarioController.prepareEdit}" value="#{bundle.ListInventarioEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{inventarioController.destroy}" value="#{bundle.ListInventarioDestroyLink}"/>
+                            <h:commandButton action="#{inventarioController.destroy}" value="#{bundle.ListInventarioDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{inventarioController.prepareCreate}" value="#{bundle.ListInventarioCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListInventarioIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{inventarioController.prepareCreate}" value="#{bundle.ListInventarioCreateLink}"/>
+
+                <h:commandButton value="#{bundle.ListInventarioIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
