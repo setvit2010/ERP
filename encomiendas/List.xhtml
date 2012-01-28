@@ -17,8 +17,8 @@
                 <h:outputText escape="false" value="#{bundle.ListEncomiendasEmpty}" rendered="#{encomiendasController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{encomiendasController.items.rowCount > 0}">
                     <h:outputText value="#{encomiendasController.pagination.pageFirstItem + 1}..#{encomiendasController.pagination.pageLastItem + 1}/#{encomiendasController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{encomiendasController.previous}" value="#{bundle.Previous} #{encomiendasController.pagination.pageSize}" rendered="#{encomiendasController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{encomiendasController.next}" value="#{bundle.Next} #{encomiendasController.pagination.pageSize}" rendered="#{encomiendasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:commandButton action="#{encomiendasController.previous}" value="#{bundle.Previous} #{encomiendasController.pagination.pageSize}" rendered="#{encomiendasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandButton action="#{encomiendasController.next}" value="#{bundle.Next} #{encomiendasController.pagination.pageSize}" rendered="#{encomiendasController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{encomiendasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
@@ -48,19 +48,18 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{encomiendasController.prepareView}" value="#{bundle.ListEncomiendasViewLink}"/>
+                            <h:commandButton action="#{encomiendasController.prepareView}" value="#{bundle.ListEncomiendasViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{encomiendasController.prepareEdit}" value="#{bundle.ListEncomiendasEditLink}"/>
+                            <h:commandButton action="#{encomiendasController.prepareEdit}" value="#{bundle.ListEncomiendasEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{encomiendasController.destroy}" value="#{bundle.ListEncomiendasDestroyLink}"/>
+                            <h:commandButton action="#{encomiendasController.destroy}" value="#{bundle.ListEncomiendasDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{encomiendasController.prepareCreate}" value="#{bundle.ListEncomiendasCreateLink}"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.ListEncomiendasIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{encomiendasController.prepareCreate}" value="#{bundle.ListEncomiendasCreateLink}"/>
+                
+                <h:commandButton value="#{bundle.ListEncomiendasIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
