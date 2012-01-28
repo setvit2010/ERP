@@ -30,15 +30,13 @@
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
                 </h:panelGrid>
-                <h:commandLink action="#{inventarioController.update}" value="#{bundle.EditInventarioSaveLink}"/>
+                <h:commandButton action="#{inventarioController.update}" value="#{bundle.EditInventarioSaveLink}"/>
+
+                <h:commandButton action="View" value="#{bundle.EditInventarioViewLink}" immediate="true"/>
                 <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditInventarioViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{inventarioController.prepareList}" value="#{bundle.EditInventarioShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditInventarioIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{inventarioController.prepareList}" value="#{bundle.EditInventarioShowAllLink}" immediate="true"/>
+
+                <h:commandButton value="#{bundle.EditInventarioIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
