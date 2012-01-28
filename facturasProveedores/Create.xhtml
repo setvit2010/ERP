@@ -35,13 +35,11 @@
                     <h:inputText id="total" value="#{facturasProveedoresController.selected.total}" title="#{bundle.CreateFacturasProveedoresTitle_total}" />
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{facturasProveedoresController.create}" value="#{bundle.CreateFacturasProveedoresSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{facturasProveedoresController.prepareList}" value="#{bundle.CreateFacturasProveedoresShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.CreateFacturasProveedoresIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{facturasProveedoresController.create}" value="#{bundle.CreateFacturasProveedoresSaveLink}" />
+              
+                <h:commandButton action="#{facturasProveedoresController.prepareList}" value="#{bundle.CreateFacturasProveedoresShowAllLink}" immediate="true"/>
+               
+                <h:commandButton value="#{bundle.CreateFacturasProveedoresIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
