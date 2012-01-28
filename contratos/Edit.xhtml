@@ -20,15 +20,13 @@
                     <h:outputLabel value="#{bundle.EditContratosLabel_idPeticion}" for="idPeticion" />
                     <h:inputText id="idPeticion" value="#{contratosController.selected.idPeticion}" title="#{bundle.EditContratosTitle_idPeticion}" />
                 </h:panelGrid>
-                <h:commandLink action="#{contratosController.update}" value="#{bundle.EditContratosSaveLink}"/>
-                <br />
-                <br />
-                <h:commandLink action="View" value="#{bundle.EditContratosViewLink}" immediate="true"/>
-                <br />
-                <h:commandLink action="#{contratosController.prepareList}" value="#{bundle.EditContratosShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:commandLink value="#{bundle.EditContratosIndexLink}" action="/index" immediate="true" />
+                <h:commandButton action="#{contratosController.update}" value="#{bundle.EditContratosSaveLink}"/>
+                
+                <h:commandButton action="View" value="#{bundle.EditContratosViewLink}" immediate="true"/>
+               
+                <h:commandButton action="#{contratosController.prepareList}" value="#{bundle.EditContratosShowAllLink}" immediate="true"/>
+              
+                <h:commandButton value="#{bundle.EditContratosIndexLink}" action="/index" immediate="true" />
             </h:form>
         </ui:define>
     </ui:composition>
